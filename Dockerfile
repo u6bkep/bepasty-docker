@@ -1,13 +1,14 @@
 FROM python:3.9
-MAINTAINER Arne Schauf
+LABEL authors='Arne Schauf, Ben Kepner <u6bkep@gmail.com>'
 
-RUN apt-get update && apt-get upgrade -y && apt-get install -y python-pip python-dev
 ADD requirements.txt /opt/requirements.txt
 RUN pip install -r /opt/requirements.txt
 
 VOLUME /srv/bepasty
 ENV BEPASTY_CONFIG /srv/bepasty/bepasty.conf
 ENV PYTHONUNBUFFERED 0
+ENV LISTEN_IP [::]
+ENV LISTEN_PORT 5000
 EXPOSE 5000
 
 WORKDIR /opt
