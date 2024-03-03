@@ -31,6 +31,23 @@ running
 docker start bepasty
 ```
 
+**compose**
+```yml
+version: "3"
+services:
+  bepasty:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # image: bepasty:latest # specify an image fully qualified name if you want to push to a registry
+    restart: unless-stopped
+    volumes:
+      - ./data/:/srv/bepasty/
+    environment:
+      - LISTEN_PORT=5000
+      - LISTEN_IP=127.0.0.1
+```
+
 **Updating**
 
 To update you need to stop and delete the container (data is stored on the host, so it shouldn't be lost), then fetch
