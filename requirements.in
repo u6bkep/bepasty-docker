@@ -1,2 +1,4 @@
 git+http://github.com/u6bkep/bepasty-server.git
 uwsgi
+pillow
+av
