@@ -1,4 +1,4 @@
-FROM python:3.9
+FROM python:3.12
 LABEL authors='Arne Schauf, Ben Kepner <u6bkep@gmail.com>'
 
 ADD requirements.txt /opt/requirements.txt
